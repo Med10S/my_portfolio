@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #DFE3D5;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line */
+}
+
+.text {
+    max-width: 400px;
+    padding: 20px;
+    flex: 1;
+    /* Take full width in a column layout */
+}
+
+.image {
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    /* Take full width in a column layout */
+    margin-top: 20px;
+    /* Add some spacing between text and image in column layout */
+}
+
+@media (max-width: 768px) {
+
+    /* Apply styles when the viewport width is 768 pixels or smaller */
+
+
+    .text,
+    .image {
+        max-width: 100%;
+        /* Make both text and image take full width in column layout */
+    }
+}
