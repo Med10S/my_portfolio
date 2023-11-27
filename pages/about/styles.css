@@ -20,6 +20,7 @@ body {
 
     /* background-color: #949BA0; */
     margin: 0;
+    padding: 0;
 }
 
 .logo {
@@ -226,6 +227,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-bottom: 50px;
 }
 
 .project {
@@ -312,4 +314,31 @@ p {
         transform: translateY(-20px);
         /* Adjust the jump height */
     }
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: right;
+    padding: 5px;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
