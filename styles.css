@@ -380,7 +380,7 @@ footer {
 
 .cv img {
     width: 100%;
-    height: auto;
+    /* height: 100vh; */
     border-radius: 20px;
     margin-bottom: 20%;
 }
@@ -420,7 +420,7 @@ footer {
     flex-wrap: wrap;
     padding-left: 10%;
     padding-right: 10%;
-    padding-bottom: 10%;
+
 
 }
 
@@ -440,6 +440,7 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     flex: 1;
     margin-top: 20px;
+    margin-bottom: 20px;
     order: 1;
     width: 100%;
 }
