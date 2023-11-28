@@ -16,6 +16,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 100%;
     background: linear-gradient(to right, #859A9E, #949BA0);
 
     /* background-color: #949BA0; */
@@ -25,6 +26,9 @@ body {
 
 .logo {
     width: 100px;
+    align-items: center;
+    justify-content: center;
+
 }
 
 iframe {
@@ -47,9 +51,9 @@ header {
 
 header nav {
     /* Modifiez cette ligne */
-    max-width: 1350px;
+    /* max-width: 1350px; */
     margin: 0 auto;
-    padding: 0 2rem;
+    /* padding: 0 2rem; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -60,6 +64,8 @@ header ul {
     display: flex;
     list-style: none;
     align-items: center;
+    text-align: center;
+
 }
 
 header ul a {
@@ -69,12 +75,10 @@ header ul a {
     text-transform: uppercase;
     font-weight: 300;
     font-size: 0.83rem;
+    text-align: center;
+
 }
 
-.search {
-    font-size: 1.05rem;
-    padding: 0 3rem;
-}
 
 .hamburger {
     padding-left: 1.5rem;
@@ -137,8 +141,11 @@ main {
 
 .list-group {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    /* flex-direction: row; */
     margin-bottom: 20px;
+    justify-content: center;
+
 }
 
 .list-container {
@@ -314,7 +321,6 @@ p {
 
     100% {
         transform: translateY(-20px);
-        /* Adjust the jump height */
     }
 }
 
@@ -376,6 +382,7 @@ footer {
     width: 100%;
     height: auto;
     border-radius: 20px;
+    margin-bottom: 20%;
 }
 
 .cv-details {
@@ -396,10 +403,6 @@ footer {
     text-align: center;
 }
 
-
-
-
-
 .cv:hover .cv-details {
     opacity: 1;
 }
@@ -407,4 +410,36 @@ footer {
 .cv-details h3,
 .cv-details p {
     margin: 5px;
+}
+
+.container12 {
+    background-color: #DFE3D5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 10%;
+
+}
+
+.text {
+    padding: 20px;
+    flex: 1;
+    order: -1;
+}
+
+.text h1 {
+    text-align: center;
+}
+
+.image {
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    margin-top: 20px;
+    order: 1;
+    width: 100%;
 }
