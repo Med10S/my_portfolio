@@ -18,7 +18,7 @@ body {
     height: 100vh;
     width: 100%;
     background: linear-gradient(to right, #859A9E, #949BA0);
-
+    overflow-x: hidden;
     /* background-color: #949BA0; */
     margin: 0;
     padding: 0;
