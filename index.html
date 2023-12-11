@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mohammed Sbihi</title>
@@ -13,7 +14,9 @@
 
 </head>
 
+
 <body>
+
 
     <header>
         <nav>
@@ -35,7 +38,8 @@
 
                 <p>
                     I'm Mohammed Sbihi, a passionate individual obsessed with cybersecurity. Currently in my third
-                    year of engineering studies at ENSAF, I am dedicated to honing my skills in the ever-evolving field
+                    year of engineering studies at ENSAF, I am dedicated to honing my skills in the ever-evolving
+                    field
                     of
                     cybersecurity. My journey involves exploring platforms like TryHackMe, Hack The Box, and
                     participating
@@ -44,7 +48,8 @@
                 <p>
                     Simultaneously, I wear the hat of a junior Android application developer, proficient in Java for
                     native
-                    development and Flutter for cross-platform applications. Combining my cybersecurity knowledge with
+                    development and Flutter for cross-platform applications. Combining my cybersecurity knowledge
+                    with
                     my
                     development skills, I strive to create secure and robust mobile applications.
 
@@ -54,7 +59,8 @@
                     cybersecurity and mobile development intersect.
                 </p>
                 <p>
-                    Let's connect and explore the possibilities at the intersection of cybersecurity and cutting-edge
+                    Let's connect and explore the possibilities at the intersection of cybersecurity and
+                    cutting-edge
                     technology!
                 </p>
             </div>
@@ -73,7 +79,8 @@
                     <h2 class="list-title">FrontEnd</h2>
                     <ul class="custom-list">
                         <li class="list-item">
-                            <div class="list-item-icon"><i class="fa-brands fa-html5" style="color: #ca0707;"></i></div>
+                            <div class="list-item-icon"><i class="fa-brands fa-html5" style="color: #ca0707;"></i>
+                            </div>
                             <div>HTML</div>
                         </li>
                         <li class="list-item">
@@ -345,14 +352,11 @@
 
 
             </div>
-
-
-
-
-
             <footer>
+
                 <div class="footer-row">
                     <h>Sbihi Mohammed</h>
+                    <p id="visit-count">Visites (dernières 24h)...</p>
 
                     <div class="social-icons">
                         <a href="https://www.linkedin.com/in/mohammed-sbihi/" target="_blank">
@@ -370,13 +374,53 @@
                         </a>
                     </div>
                 </div>
+
             </footer>
 
 
         </div>
     </main>
 
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
 
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDe6MmLhDPrg2JCRP7KFFKPEoelbj6TueE",
+            authDomain: "portfolio-242fc.firebaseapp.com",
+            projectId: "portfolio-242fc",
+            storageBucket: "portfolio-242fc.appspot.com",
+            messagingSenderId: "356257776666",
+            appId: "1:356257776666:web:e8cb5cd530fb7248997da3",
+            measurementId: "G-28HRKZH0BX"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        const visitCountElement = document.getElementById('visit-count');
+
+        // Function to increment and display the visit count
+        const incrementAndDisplayCount = async () => {
+            const visitRef = ref(getDatabase(app), 'visits');
+            const currentCountSnapshot = await get(visitRef);
+            const currentCount = currentCountSnapshot.val() || 0;
+
+            // Increment the count
+            await set(visitRef, currentCount + 1);
+
+            // Display the count
+            visitCountElement.textContent = `${currentCount + 1} : Visites (dernières 24h)`;
+        };
+
+        // Call the function to increment and display the count
+        incrementAndDisplayCount();
+    </script>
 </body>
 
 </html>
