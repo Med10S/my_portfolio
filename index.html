@@ -409,13 +409,31 @@
         const incrementAndDisplayCount = async () => {
             const visitRef = ref(getDatabase(app), 'visits');
             const currentCountSnapshot = await get(visitRef);
-            const currentCount = currentCountSnapshot.val() || 0;
+            let currentCount = currentCountSnapshot.val() || 0;
+
+            // Get the last visit timestamp
+            const lastVisitTimestamp = localStorage.getItem('lastVisitTimestamp') || 0;
+
+            // Get the current timestamp
+            const currentTimestamp = new Date().getTime();
+
+            // Check if more than 24 hours have passed since the last visit
+            if (currentTimestamp - lastVisitTimestamp > 24 * 60 * 60 * 1000) {
+                // Reset the count
+                currentCount = 0;
+
+                // Update the last visit timestamp
+                localStorage.setItem('lastVisitTimestamp', currentTimestamp);
+            }
 
             // Increment the count
-            await set(visitRef, currentCount + 1);
+            currentCount++;
+
+            // Update the visit count in the database
+            await set(visitRef, currentCount);
 
             // Display the count
-            visitCountElement.textContent = `${currentCount + 1} : Visites (dernières 24h)`;
+            visitCountElement.textContent = `${currentCount}: Visites (dernières 24h)`;
         };
 
         // Call the function to increment and display the count
